@@ -1,20 +1,37 @@
 package org.launchcode.spaday.models;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class User {
+
+
+    @NotEmpty
+    @Size(min=5, max=15)
     private String username;
+
+    @Email
     private String email;
+
+    @NotEmpty
+    @Size(min=6)
     private String password;
 
-    public User() {
+    @NotEmpty
+    private String verify;
 
-    }
 
-    public User(String username, String email, String password) {
-        this();
+
+    public User(String username, String email, String password, String verify) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.verify = verify;
     }
+
+    public User() {};
 
     public String getUsername() {
         return username;
@@ -38,5 +55,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
     }
 }
