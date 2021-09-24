@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-@RequestMapping("user")
+@RequestMapping("/user")
 @Controller
 public class UserController {
 
@@ -30,7 +30,7 @@ public class UserController {
 //        model.addAttribute("user", user)
         if (errors.hasErrors()) {
             model.addAttribute("Error", "Errors exist!");
-            return ("/add");
+            return ("add");
         }
 
         if (user.getPassword().equals(user.getVerify())) {
